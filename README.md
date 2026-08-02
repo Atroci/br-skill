@@ -8,19 +8,19 @@ O repositório é inspirado no mapa técnico de [`NomaDamas/k-skill`](https://gi
 
 - caminho local: `www/projects/br-skill/`
 - branch inicial: `main`
-- remoto `Atroci/br-skill`: ainda não criado/verificado nesta sessão
+- remoto: [Atroci/br-skill](https://github.com/Atroci/br-skill), público, `main` em `5ea2e9d`
 - adapters executáveis: ainda não implementados
 - prioridade: fontes oficiais, leitura read-only, evidência e aprovação humana
 
 ## Uso local
 
-Durante desenvolvimento, carregue a pasta inteira pelo caminho local conforme o runtime utilizado. Não copie apenas `SKILL.md`: as referências são parte do contrato. Depois que o remoto existir, a instalação pública poderá usar:
+Durante desenvolvimento, carregue a pasta inteira pelo caminho local conforme o runtime utilizado. Não copie apenas `SKILL.md`: as referências são parte do contrato. Para instalação pública:
 
 ```bash
 npx --yes skills add https://github.com/Atroci/br-skill --skill br-skill -g
 ```
 
-O comando acima é preparação de publicação, não prova de que o remoto já exista.
+O remoto e o commit inicial já foram publicados; confirme a versão instalada antes de usar em produção.
 
 ## Compatibilidade
 
