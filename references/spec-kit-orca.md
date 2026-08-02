@@ -4,6 +4,10 @@
 
 Spec Kit é uma camada de especificação proporcional ao risco; não é autoridade de release e não substitui teste, lint, revisão ou aprovação humana. Use a versão instalada no ambiente e confirme seus comandos antes de automatizar. Esta skill ainda não contém `.specify/` nem impõe uma versão de CLI.
 
+O fluxo textual detalhado está em [`fluxo-progressivo.md`](fluxo-progressivo.md). Para evolução da própria instrução, [`skillopt.md`](skillopt.md) registra uma inspiração offline, com diff mínimo, conjunto held-out e adoção manual; nenhum desses documentos instala runtime ou autoriza mutação automática.
+
+O Spec Kit upstream documenta `specify init` e fases como `/speckit.constitution`, `/speckit.specify`, `/speckit.plan`, `/speckit.tasks` e `/speckit.implement`, além de fases opcionais em versões recentes. Trate nomes e forma de invocação como versionados: confirme `--help`, a integração do agente e a estrutura local antes de executar.
+
 ## Níveis de especificação
 
 | Situação | Artefato mínimo | Gate |
@@ -36,12 +40,12 @@ Fora de um terminal gerenciado pelo Orca, use `orca-ide`; dentro dele, o binári
 orca-ide orchestration run-create --objective "Mapear fontes oficiais brasileiras" --json
 orca-ide orchestration task-create --run <RUN_ID> --spec "Fontes jurídicas; somente leitura; devolver URLs e limites" --json
 orca-ide orchestration task-create --run <RUN_ID> --spec "Fontes imobiliárias; somente leitura; separar cadastro de registro" --json
-orca-ide orchestration worker-start --task <TASK_ID> --worktree current --agent codex --run <RUN_ID> --json
+orca-ide orchestration worker-start --task <TASK_ID> --worktree new-child --agent codex --setup skip --run <RUN_ID> --json
 orca-ide orchestration task-list --run <RUN_ID> --json
 orca-ide orchestration check --wait --types worker_done,escalation,question --timeout-ms 900000 --json
 ```
 
-Cada worker recebe repo, arquivos, escopo, formato de saída e proibição de mutação. Ao terminar, deve registrar resultado, evidências, limitações e IDs de tarefa. O coordenador sintetiza; não promove automaticamente.
+Cada worker recebe repo, arquivos, escopo, formato de saída e proibição de mutação. Ao terminar, deve registrar resultado, evidências, limitações e IDs de tarefa. Tasks paralelas usam worktrees disjuntos. O coordenador sintetiza; não promove automaticamente.
 
 `worker_done` encerra o trabalho delegado, mas não é autorização para cherry-pick, merge, push, deploy ou ação externa. O coordenador deve revisar diff, escopo, checks e fonte antes do próximo gate. Se o Run ou terminal Orca estiver indisponível, registrar a limitação e não transformar uma conclusão textual em aprovação.
 

@@ -1,0 +1,3 @@
+trip_id,arrival_time,departure_time,stop_id,stop_sequence
+trip-sintetica-1,08:00:00,08:00:30,stop-sintetica-a,1
+trip-sintetica-1,08:20:00,08:20:30,stop-sintetica-b,2

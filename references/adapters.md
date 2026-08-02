@@ -67,6 +67,21 @@ Promova algo ao Center somente quando dois adapters independentes precisarem do 
 8. Rode validação local e peça revisão read-only via Orca.
 9. Só com aprovação explícita habilite nova capacidade; publicação, push e ação externa continuam gates separados.
 
+### Adapter GTFS atual
+
+`adapters/gtfs_static/` é a primeira implementação mínima desta convenção: valida
+um diretório GTFS Schedule local contra uma fixture sintética, sem rede, escrita,
+autenticação ou inferência de operação. Execute o check focado com:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 adapters/gtfs_static/test_adapter.py
+```
+
+Ele não representa produtor brasileiro, não confirma cobertura geográfica e não
+substitui validação completa do padrão. Um próximo adapter GTFS precisa reabrir
+produtor, URL, termos, licença, frescor, jurisdição e arquivo atual; GTFS-RT e
+disponibilidade em tempo real continuam fora deste contrato.
+
 ### Fontes agregadas e MCP
 
 Um catálogo, MCP ou ferramenta de descoberta pode preencher `source_role: catalog|aggregator`, sugerir URL ou revelar capability. Isso não autoriza tratar o resultado como oficial. Antes de qualquer conclusão material, reabra a fonte do produtor, confira termos/licença, frescor e jurisdição; se não for possível, use `manual_review` ou `UNKNOWN`.

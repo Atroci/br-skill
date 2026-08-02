@@ -1,0 +1,3 @@
+stop_id,stop_name,stop_lat,stop_lon
+stop-sintetica-a,Parada Sintética A,-10.0000,-50.0000
+stop-sintetica-b,Parada Sintética B,-10.0100,-50.0100
