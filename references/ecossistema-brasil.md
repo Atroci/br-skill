@@ -89,6 +89,42 @@ O conjunto acima é o conjunto deste mapa, não uma afirmação de completude. R
 - **Rejeição:** [I-014] **INFERENCE — REVALIDAR:** não tratar o repositório como produtor, nem publicar sua cópia como feed atual, licenciado ou completo.
 - **Revalidação:** [R-007] URL `https://github.com/benaytms/urbs-gtfs/releases/download/latest/gtfs_curitiba.zip`; acesso registrado `2026-08-02` no mapa GTFS; limitação: cópia comunitária e URL de release não provam termos, bytes atuais, escopo ou autoridade.
 
+## Inventário ampliado informado no pedido
+
+As linhas abaixo registram candidatos adicionais fornecidos no pedido de
+`2026-08-02`. O papel e o ganho são **INPUT — REVALIDAR**, não observação live
+deste arquivo; confirmar URL canônica, licença, manutenção, termos, fontes,
+capacidade e risco antes de promover qualquer item. A recomendação é extrair
+contratos, falhas e limites; não copiar árvores, instalar runtimes ou habilitar
+ação externa.
+
+| Repositório | Papel alegado no pedido | Ganho que vale testar | Limite/rejeição nesta onda |
+|---|---|---|---|
+| [`dheiver2/mangaba-agent`](https://github.com/dheiver2/mangaba-agent) | agente para pequenos negócios/WhatsApp e PIX | estudar contratos locais de catálogo, atendimento e payload determinístico | não habilitar WhatsApp, cobrança, QR, nota ou mensagem; runtime e integração ficam `UNKNOWN` |
+| [`ricardonevesbraga/flowgrammers-skills`](https://github.com/ricardonevesbraga/flowgrammers-skills) | catálogo amplo de skills de negócios em PT-BR | selecionar poucos prompts de vendas, contratos, LGPD e engenharia | não instalar coleção inteira nem tratar prompt como autoridade jurídica/fiscal |
+| [`rvsanches/skills-datajud-djen`](https://github.com/rvsanches/skills-datajud-djen) | conhecimento operacional de DataJud/DJEN | capturar timeouts, retries, paginação, deduplicação e estados de falha | não tratar experiência de SaaS como fonte legal; exige cite-check e fixture redigida |
+| [`DeHor-Labs/mcp-juridico-brasil`](https://github.com/DeHor-Labs/mcp-juridico-brasil) | camada MCP jurídica | modelar lookup read-only de processo, movimentos e handoff | não emitir prazo, parecer, citação ou ação em tribunal; cobertura alegada é `UNKNOWN` |
+| [`tarikbc/nfse-sem-gateway`](https://github.com/tarikbc/nfse-sem-gateway) | integração direta NFS-e e certificados | documentar fronteira de certificado, mTLS, XML e rejeição | não assinar, emitir, cancelar ou usar A1; qualquer efeito fiscal exige gate separado |
+| [`DeHor-Labs/mcp-fiscal-brasil`](https://github.com/DeHor-Labs/mcp-fiscal-brasil) | camada MCP fiscal | separar consulta, validação, fonte e regime tributário | não protocolar, calcular obrigação final ou substituir contador; fatos de 2026 exigem revalidação |
+| [`openaccountants/openaccountants`](https://github.com/openaccountants/openaccountants) | guias fiscais com fontes e MCP | adotar metadados de revisão, fonte e status de rascunho | não tratar guia draft como autoridade para declaração, pagamento ou decisão |
+| [`Danielbluz/skill-irpf-brasil`](https://github.com/Danielbluz/skill-irpf-brasil) | preparação e heurísticas de IRPF | estudar masking de CPF, auditoria preliminar e limites de dados | não tratar projeto pessoal como validação profissional nem enviar declaração |
+| [`ThomasMoreAI/legal-skills-open`](https://github.com/ThomasMoreAI/legal-skills-open) | workflows jurídicos internacionais, incluindo Brasil | extrair formato de checklist e análise de leilão/imóvel | qualidade/autoria variam; não instalar globalmente nem gerar aconselhamento |
+| [`silasrm/mcp-brasilapi`](https://github.com/silasrm/mcp-brasilapi) | utilities de CEP, CNPJ, IBGE e referências BR | candidato ao primeiro adapter `lookup` BrasilAPI/IBGE/CEP | confirmar endpoint, termos, frescor, alfanumérico CNPJ e contrato antes de código |
+| [`rafaelkamimura/claude-tools`](https://github.com/rafaelkamimura/claude-tools) | exemplos de integração financeira brasileira | estudar boleto/PIX e validação como material de comparação | não copiar validador sem revisar transição do CNPJ alfanumérico, segredo e pagamentos |
+
+### Referências de método e produto
+
+| Repositório | O que preservar | O que não importar |
+|---|---|---|
+| [`Atroci/gander`](https://github.com/Atroci/gander) | escopo de pesquisa imobiliária, frescor, evidência e limites de anúncio | prometer completude, disponibilidade ou prova de titularidade |
+| [`santifer/career-ops`](https://github.com/santifer/career-ops) | pipeline de oportunidades, revisão humana e adaptação a sites brasileiros | candidatura automática, scraping sem termos ou exposição de PII |
+| [`jordan-gibbs/hyperresearch`](https://github.com/jordan-gibbs/hyperresearch) | decomposição de pesquisa, fontes e síntese rastreável | loops sem orçamento, verificação ou controle de prompt injection |
+| [`0xNyk/council-of-high-intelligence`](https://github.com/0xNyk/council-of-high-intelligence) | dissent, papéis de revisão e decisão explícita | consenso como fonte, aprovação automática ou autoridade jurídica |
+
+Para todos os itens desta seção: `source_role=upstream_reference`,
+`access=REVALIDAR`, `capability=UNKNOWN` até a revisão live. O Council desta
+skill pode ordenar investigação, mas não confirma esses claims.
+
 ## Council: pergunta, posições e dissent
 
 **Pergunta:** quais repositórios podem informar o próximo corte da BR Skill, quais ficam apenas como contexto e o que deve ser rejeitado até haver evidência?
@@ -111,14 +147,14 @@ O conjunto acima é o conjunto deste mapa, não uma afirmação de completude. R
 
 ### Limite da recomendação
 
-[I-020] **INFERENCE:** manter os sete repositórios como referências classificadas é o menor corte reversível. Nenhum deve gerar adapter, servidor MCP, bridge, crawler, runtime compartilhado ou promessa de cobertura sem os gates do roadmap. Isso não é autorização de implementação ou publicação.
+[I-020] **INFERENCE:** manter os inventários base e ampliado como referências classificadas é o menor corte reversível. Nenhum item deve gerar adapter, servidor MCP, bridge, crawler, runtime compartilhado ou promessa de cobertura sem os gates do roadmap. Isso não é autorização de implementação ou publicação.
 
 ## Roadmap por gates
 
 ### P0 — revalidar o inventário, read-only
 
-1. Reabrir cada URL `R-001`–`R-007` sem login, CAPTCHA, pagamento ou bypass; registrar URL canônica, acesso, jurisdição/escopo observado e estado (`ok`, `blocked`, `stale`, `auth_required` ou `UNKNOWN`).
-2. Para `R-002`–`R-007`, confirmar se papel, termos, licença, frescor, produtor e capacidade alegados ainda são sustentados; se não, reduzir a `UNKNOWN` ou `manual_review`.
+1. Reabrir cada URL `R-001`–`R-007` e cada URL do inventário ampliado sem login, CAPTCHA, pagamento ou bypass; registrar URL canônica, acesso, jurisdição/escopo observado e estado (`ok`, `blocked`, `stale`, `auth_required` ou `UNKNOWN`).
+2. Confirmar se papel, termos, licença, frescor, produtor e capacidade alegados ainda são sustentados; se não, reduzir a `UNKNOWN` ou `manual_review`.
 3. Para GTFS, separar catálogo → produtor oficial → arquivo atual; não baixar bytes sem autorização, limite e necessidade aprovada.
 4. Confirmar a existência do remoto `Atroci/br-skill` antes de qualquer publicação. Esta confirmação não autoriza push.
 

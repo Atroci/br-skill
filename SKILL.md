@@ -25,6 +25,10 @@ Leia somente a referência necessária antes de agir:
 - `references/roldao-method.md`: promoção de contratos/skills sem copiar framework upstream.
 - `references/governanca-seguranca.md`: gates de segurança, PR, merge, push, issues e Orca.
 - `references/spec-kit-orca.md`: Spec Kit, níveis de risco e orquestração Orca.
+- `references/fluxo-progressivo.md`: prompts PT-BR para fluxo Spec Kit progressivo e gates Orca por runtime.
+- `references/skillopt.md`: evolução documental inspirada no SkillOpt, com held-out gate e adoção manual.
+- `references/ecossistema-brasil.md`: mapa Council dos repositórios brasileiros e lacunas revalidadas.
+- `adapters/gtfs_static/README.md`: validator GTFS Schedule local, sintético e read-only.
 
 ## Fluxo padrão
 

@@ -9,7 +9,7 @@ O repositório é inspirado no mapa técnico de [`NomaDamas/k-skill`](https://gi
 - caminho local: `www/projects/br-skill/`
 - branch inicial: `main`
 - remoto: [Atroci/br-skill](https://github.com/Atroci/br-skill), público; última versão publicada antes desta onda: `c15ea35`
-- adapters executáveis: ainda não implementados
+- adapter executável: validator GTFS Schedule local/sintético em `adapters/gtfs_static/`; não consulta feed real
 - prioridade: fontes oficiais, leitura read-only, evidência, PT-BR e aprovação humana
 
 ## Uso local
@@ -50,6 +50,10 @@ Leia [`references/plataformas.md`](references/plataformas.md) para comandos de i
 - [`references/roldao-method.md`](references/roldao-method.md): regra de promoção de skills e checks mínimos.
 - [`references/governanca-seguranca.md`](references/governanca-seguranca.md): CI, PR, issues, segurança e gates.
 - [`references/spec-kit-orca.md`](references/spec-kit-orca.md): Spec Kit e Orca por nível de risco.
+- [`references/fluxo-progressivo.md`](references/fluxo-progressivo.md): prompts PT-BR e fluxo progressivo para os quatro runtimes.
+- [`references/skillopt.md`](references/skillopt.md): SkillOpt como inspiração controlada para evoluir instruções.
+- [`references/ecossistema-brasil.md`](references/ecossistema-brasil.md): mapa Council, ganhos, lacunas e rejeições por upstream.
+- [`adapters/gtfs_static/README.md`](adapters/gtfs_static/README.md): contrato e limites do validator GTFS offline.
 - [`AGENTS.md`](AGENTS.md), [`CONTRIBUTING.md`](CONTRIBUTING.md) e [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md): engenharia e colaboração.
 
 ## Onda atual
@@ -57,13 +61,14 @@ Leia [`references/plataformas.md`](references/plataformas.md) para comandos de i
 - mapear fontes e contratos sem prometer cobertura nacional;
 - separar catálogo, produtor oficial e arquivo atual;
 - manter Council, MCP e Orca como capacidades auxiliares, nunca como autoridade;
+- aplicar fluxo progressivo com Spec Kit opcional, gates Orca e verificação CI;
 - executar CI leve em PR/push; branch protection e required checks continuam configuração separada do repositório.
 
 ## O que entra depois
 
-1. Um adapter jurídico read-only com fonte oficial e fixture.
-2. Um adapter imobiliário read-only com escopo territorial explícito.
-3. Um adapter GTFS read-only com um feed autorizado, sem assumir tempo real.
+1. Um adapter de consulta BrasilAPI/IBGE/CEP com fonte, frescor e fixture explícitos.
+2. Um adapter GTFS read-only com produtor autorizado, termos e arquivo atual; sem assumir tempo real.
+3. Um adapter jurídico e um imobiliário read-only, cada um com jurisdição e fixture explícitas.
 4. Testes de contrato, frescor e falhas; só depois browser handoff ou ação autenticada.
 
 Não entram por padrão: parecer jurídico, prova de titularidade, bypass de controles, submissão automática, lance, pagamento, assinatura ou uso de dado pessoal sem base e autorização.
