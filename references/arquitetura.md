@@ -15,18 +15,18 @@ roteamento      -> domínio, jurisdição, dado, capacidade e risco
 contexto        -> referências PT-BR e fontes oficiais
 center          -> contratos comuns, evidência, gates e falhas
 moat            -> adaptação brasileira: idioma, jurisdição, taxonomia e fontes
-adapters        -> integração isolada por fonte e domínio
+adapters        -> integração isolada por fonte e domínio, somente após fixture
 orquestração    -> Spec Kit + Orca para trabalho paralelo revisável
 entrega         -> teste, revisão, aprovação e publicação
 ```
 
 ## Center e Moat
 
-**Center** é o núcleo comum: envelope de evidência, estados `lookup|prepare|submit`, contrato de entrada/saída, frescor, falhas, segurança e aprovação. Deve ser pequeno e reutilizável.
+**Center** é o núcleo comum: envelope de evidência, produtor versus agregador, estados `lookup|prepare|submit`, frescor, falhas, segurança e aprovação. A sequência mínima é `entrada → fonte → evidência → falha`; não é um pipeline obrigatório nem um runtime.
 
-**Moat** é a vantagem localizada: PT-BR natural, UF e município, vocabulário de matrícula/RI/CIB/CEP, diferenças de tribunais e cartórios, fontes governamentais, consentimento e handoff brasileiro. Moat não significa raspar tudo nem prometer cobertura nacional.
+**Moat** é a vantagem localizada: PT-BR natural, UF e município, vocabulário de matrícula/RI/CIB/CEP, GTFS e transporte por operador, CLT/PJ/estágio, diferenças de tribunais e cartórios, fontes governamentais, consentimento e handoff brasileiro. Moat não significa raspar tudo nem prometer cobertura nacional.
 
-Regra: nova lógica só vai para o Center se pelo menos dois adapters precisarem dela sem exceções locais. Regra: particularidade de uma fonte fica no adapter ou em referência de domínio. Isso evita um núcleo genérico que apaga diferenças brasileiras.
+Regra: nova lógica só vai para o Center se pelo menos dois adapters precisarem dela sem exceções locais e dois casos reais/fixtures confirmarem o mesmo comportamento. Regra: particularidade de uma fonte fica no adapter ou em referência de domínio. Isso evita um núcleo genérico que apaga diferenças brasileiras.
 
 ## Estrutura atual
 
@@ -39,7 +39,13 @@ br-skill/
 │   ├── plataformas.md
 │   ├── brasil-juridico.md
 │   ├── brasil-imobiliario.md
+│   ├── brasil-gtfs.md
+│   ├── carreira-br.md
 │   ├── adapters.md
+│   ├── council-adapter.md
+│   ├── mcp-brasil.md
+│   ├── roldao-method.md
+│   ├── governanca-seguranca.md
 │   └── spec-kit-orca.md
 ├── AGENTS.md
 ├── README.md
@@ -74,6 +80,10 @@ Segredos, PII, cookies, documentos de cliente, prompts internos e dados operacio
 
 Cada fonte deve ter acesso e frescor verificáveis. Quando uma página exigir autenticação ou estiver bloqueada, o resultado é uma falha declarada ou handoff, não um fallback silencioso.
 
+## Fontes auxiliares e autoridade
+
+MCP Brasil pode ajudar a descobrir APIs e organizar chamadas, mas é um projeto independente e agregador. MobilityData pode catalogar GTFS, mas o produtor oficial define arquivo, licença e frescor. Council pode organizar dissent e próximos passos, mas não cria evidência. Roldão informa contratos e checks, mas não justifica copiar hooks, agentes ou uma nova hierarquia de skills. Em todos os casos, a fonte primária e o timestamp continuam no envelope.
+
 ## Relação com o upstream
 
 | Padrão observado no upstream | Decisão brasileira |
@@ -84,6 +94,10 @@ Cada fonte deve ter acesso e frescor verificáveis. Quando uma página exigir au
 | Descoberta pública e fallbacks | Fonte oficial primária, estado de falha tipado e sem bypass |
 | CI de pacote | `quick_validate.py` agora; testes de adapter depois |
 
+## Portabilidade
+
+O contrato é Markdown e funciona como instrução nos quatro runtimes. OpenCode, Codex, Gemini CLI e Google Antigravity podem carregar a mesma pasta, mas não se presume suporte nativo a Council, MCP, hooks, navegador ou bloqueio automático. Se uma capacidade faltar, registrar a limitação e continuar read-only; nunca fingir que uma barreira textual foi enforcement técnico.
+
 ## Limites de escala
 
-O primeiro corte mapeia arquitetura e contrato. Não inclui catálogo completo do upstream, catálogo nacional de tribunais, integração autenticada, crawler genérico, pacote npm, MCP ou dashboard. Esses itens entram apenas com problema concreto, fonte autorizada e gate de risco.
+O primeiro corte mapeia arquitetura e contrato. Não inclui catálogo completo do upstream, catálogo nacional de tribunais, integração autenticada, crawler genérico, pacote npm, servidor MCP, DuckDB, dashboard ou bridge executável. Esses itens entram apenas com problema concreto, fonte autorizada, repetição e gate de risco.
