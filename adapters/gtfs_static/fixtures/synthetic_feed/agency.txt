@@ -1,0 +1,2 @@
+agency_id,agency_name,agency_url,agency_timezone
+agency-sintetica,Operadora Sintética BR,https://gtfs.example.invalid/synthetic,America/Sao_Paulo
