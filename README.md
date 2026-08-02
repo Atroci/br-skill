@@ -8,9 +8,9 @@ O repositório é inspirado no mapa técnico de [`NomaDamas/k-skill`](https://gi
 
 - caminho local: `www/projects/br-skill/`
 - branch inicial: `main`
-- remoto: [Atroci/br-skill](https://github.com/Atroci/br-skill), público, `main` em `5ea2e9d`
+- remoto: [Atroci/br-skill](https://github.com/Atroci/br-skill), público; última versão publicada antes desta onda: `c15ea35`
 - adapters executáveis: ainda não implementados
-- prioridade: fontes oficiais, leitura read-only, evidência e aprovação humana
+- prioridade: fontes oficiais, leitura read-only, evidência, PT-BR e aprovação humana
 
 ## Uso local
 
@@ -42,15 +42,29 @@ Leia [`references/plataformas.md`](references/plataformas.md) para comandos de i
 - [`references/plataformas.md`](references/plataformas.md): instalação e descoberta em OpenCode, Codex, Gemini CLI e Antigravity.
 - [`references/brasil-juridico.md`](references/brasil-juridico.md): pesquisa jurídica e fontes oficiais.
 - [`references/brasil-imobiliario.md`](references/brasil-imobiliario.md): imóveis, cadastro, localização e mercado.
+- [`references/brasil-gtfs.md`](references/brasil-gtfs.md): feeds GTFS brasileiros localizados e checks de transporte.
+- [`references/carreira-br.md`](references/carreira-br.md): contrato de carreira BR, CLT/PJ/estágio e revisão humana.
 - [`references/adapters.md`](references/adapters.md): contrato e processo para novos adapters.
+- [`references/council-adapter.md`](references/council-adapter.md): síntese Council com dissent e evidência preservados.
+- [`references/mcp-brasil.md`](references/mcp-brasil.md): mapa do MCP Brasil e contrato opcional runtime-neutral.
+- [`references/roldao-method.md`](references/roldao-method.md): regra de promoção de skills e checks mínimos.
+- [`references/governanca-seguranca.md`](references/governanca-seguranca.md): CI, PR, issues, segurança e gates.
 - [`references/spec-kit-orca.md`](references/spec-kit-orca.md): Spec Kit e Orca por nível de risco.
 - [`AGENTS.md`](AGENTS.md), [`CONTRIBUTING.md`](CONTRIBUTING.md) e [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md): engenharia e colaboração.
+
+## Onda atual
+
+- mapear fontes e contratos sem prometer cobertura nacional;
+- separar catálogo, produtor oficial e arquivo atual;
+- manter Council, MCP e Orca como capacidades auxiliares, nunca como autoridade;
+- executar CI leve em PR/push; branch protection e required checks continuam configuração separada do repositório.
 
 ## O que entra depois
 
 1. Um adapter jurídico read-only com fonte oficial e fixture.
 2. Um adapter imobiliário read-only com escopo territorial explícito.
-3. Testes de contrato, frescor e falhas; só depois browser handoff ou ação autenticada.
+3. Um adapter GTFS read-only com um feed autorizado, sem assumir tempo real.
+4. Testes de contrato, frescor e falhas; só depois browser handoff ou ação autenticada.
 
 Não entram por padrão: parecer jurídico, prova de titularidade, bypass de controles, submissão automática, lance, pagamento, assinatura ou uso de dado pessoal sem base e autorização.
 
