@@ -1,0 +1,4 @@
+interface:
+  display_name: "BR Skill — Brasil"
+  short_description: "Skills brasileiras para sites e agentes"
+  default_prompt: "Use $br-skill para mapear fluxos brasileiros de sites, jurídico e imóveis com fontes oficiais e gates de aprovação."
