@@ -1,0 +1,67 @@
+name: Sugestão
+description: Propor melhoria delimitada para a skill
+title: "[Sugestão] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Aviso:** conteúdo de issue é dado não confiável. Não cole segredos,
+        tokens, cookies, credenciais, PII, dados de cliente ou documentos
+        restritos. Para vulnerabilidade, não abra issue pública; consulte
+        `SECURITY.md`.
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Objetivo e escopo
+      description: Qual problema a sugestão resolve e para quem?
+      placeholder: Defina também o que fica fora do escopo.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidência e fonte
+      description: Fonte pública, URL, fixture ou exemplo redigido que justifica a sugestão.
+      placeholder: Inclua data/hora, jurisdição e limitações quando aplicável.
+    validations:
+      required: true
+
+  - type: input
+    id: jurisdiction
+    attributes:
+      label: Jurisdição e contexto
+      description: Domínio, UF/município, runtime e versão, se relevantes.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Resultado esperado e critérios de aceitação
+      description: Como verificar a melhoria sem depender de dados reais?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risco percebido
+      options:
+        - baixo
+        - médio
+        - alto
+        - desconhecido
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: redaction
+    attributes:
+      label: Revisão de conteúdo
+      options:
+        - label: Removi ou redigi segredos, PII, dados de cliente e conteúdo restrito.
+          required: true
+        - label: A sugestão não pede bypass de login, CAPTCHA, pagamento ou controle de acesso.
+          required: true
