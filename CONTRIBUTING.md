@@ -2,6 +2,25 @@
 
 Leia `SKILL.md`, `AGENTS.md` e as referências de domínio antes de propor mudança. Escreva em português brasileiro, com exemplos brasileiros reais apenas quando forem públicos, redigidos e necessários.
 
+## Nova skill de workflow
+
+1. Defina nome, usuário, domínio, jurisdição, capacidade (`lookup`,
+   `prepare` ou `submit`) e o que fica fora.
+2. Leia o envelope e o router; não crie rota duplicada nem carregue toda a
+   biblioteca em cada workflow.
+3. Rode `init_skill.py <id> --path skills` e substitua o template por
+   instruções PT-BR concisas, fonte primária, estados, frescor, limitações e
+   handoff.
+4. Mantenha somente `skills/<id>/SKILL.md` e
+   `skills/<id>/agents/openai.yaml` quando não houver script ou referência
+   material necessária. Não crie README, adapter ou stub de runtime sem caso
+   concreto.
+5. Rode `quick_validate.py skills/<id>`, `.github/scripts/check_skill.py` e
+   `git diff --check`. Para mudança compartilhada no router/envelope, adicione
+   fixture ou check que cubra a rota.
+6. Use Orca para revisão paralela quando o escopo justificar; `worker_done`
+   prova somente a task delegada, não autoriza merge, push ou ação externa.
+
 ## Novo adapter
 
 1. Declare domínio, UF/município, fonte oficial, licença e classe de acesso.

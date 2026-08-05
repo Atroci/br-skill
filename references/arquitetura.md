@@ -4,7 +4,7 @@
 
 O `k-skill` upstream mostra um ecossistema amplo: diretórios de skills, manifestos, instruções, stubs gerados, runtime compartilhado, browser, proxy e CI. Ele também separa perfis de acesso e impõe gates para login, CAPTCHA, pagamento e submissão. Isso é contexto de mapeamento, não uma licença para copiar estrutura ou conteúdo específico.
 
-`br-skill` começa menor: uma skill raiz, referências brasileiras e contrato de adapter. Só adiciona runtime, pacote, scripts ou dezenas de skills quando houver caso de uso, fonte e teste que justifiquem isso.
+`br-skill` começa menor: uma skill raiz, router, envelope comum, referências brasileiras e seis workflows read-only. Só adiciona runtime, pacote, scripts ou adapters conectados quando houver caso de uso, fonte e teste que justifiquem isso.
 
 ## Camadas
 
@@ -15,6 +15,7 @@ roteamento      -> domínio, jurisdição, dado, capacidade e risco
 contexto        -> referências PT-BR e fontes oficiais
 center          -> contratos comuns, evidência, gates e falhas
 moat            -> adaptação brasileira: idioma, jurisdição, taxonomia e fontes
+workflows       -> skills de domínio carregadas pelo router
 adapters        -> integração isolada por fonte e domínio, somente após fixture
 orquestração    -> Spec Kit + Orca para trabalho paralelo revisável
 entrega         -> teste, revisão, aprovação e publicação
@@ -34,8 +35,11 @@ Regra: nova lógica só vai para o Center se pelo menos dois adapters precisarem
 br-skill/
 ├── SKILL.md
 ├── agents/openai.yaml
+├── routers/
+│   └── roteador-brasil.md
 ├── references/
 │   ├── arquitetura.md
+│   ├── envelope-evidencia.md
 │   ├── plataformas.md
 │   ├── brasil-juridico.md
 │   ├── brasil-imobiliario.md
@@ -47,6 +51,15 @@ br-skill/
 │   ├── roldao-method.md
 │   ├── governanca-seguranca.md
 │   └── spec-kit-orca.md
+├── skills/
+│   ├── br-alerta/
+│   ├── br-saude-perto/
+│   ├── br-remedio-seguro/
+│   ├── br-money-decisions/
+│   ├── menor-preco-br/
+│   └── br-receipt-vault/
+├── adapters/
+│   └── gtfs_static/
 ├── AGENTS.md
 ├── README.md
 ├── CONTRIBUTING.md
@@ -54,17 +67,26 @@ br-skill/
 └── .gitignore
 ```
 
-`adapters/` ainda não existe de propósito. Criá-la antes do primeiro contrato aprovado seria scaffolding sem necessidade.
+`adapters/gtfs_static/` é um validator local e sintético já aprovado como
+primeiro contrato. Ele não comprova produtor brasileiro nem cobertura real.
+Novos adapters continuam bloqueados até fonte, termos, fixture e teste serem
+aprovados.
 
-`SKILL.md` na raiz é a unidade de distribuição. OpenCode, Codex, Gemini CLI e Google Antigravity podem descobrir a mesma pasta por seus diretórios nativos ou pelo alias compartilhado `.agents/skills`; não mantenha variantes por fornecedor. O conteúdo essencial permanece em Markdown e referências relativas à raiz do pacote.
+`SKILL.md` na raiz é a unidade de distribuição e o router. Os workflows em
+`skills/` são componentes portáteis do mesmo pacote; não mantenha variantes por
+fornecedor. OpenCode, Codex, Gemini CLI e Google Antigravity podem descobrir a
+mesma pasta por seus diretórios nativos ou pelo alias compartilhado
+`.agents/skills`. O conteúdo essencial permanece em Markdown e referências
+relativas à raiz do pacote.
 
 ## Mapa de contexto
 
 1. Pedido do usuário: objetivo, público, jurisdição e capacidade.
-2. Referência geral: regras de segurança, evidência e aprovação.
-3. Referência de domínio: jurídico, imobiliário ou site.
-4. Adapter: comportamento específico da fonte.
-5. Contexto privado: somente no ambiente autorizado; nunca entra no repo público.
+2. Router: domínio, jurisdição, capacidade, risco e skill escolhida.
+3. Center: envelope, evidência, estados e handoff.
+4. Referência de domínio/moat: vocabulário, formatos e fontes brasileiras.
+5. Adapter: comportamento específico da fonte.
+6. Contexto privado: somente no ambiente autorizado; nunca entra no repo público.
 
 Segredos, PII, cookies, documentos de cliente, prompts internos e dados operacionais pertencem ao ambiente privado, não a esta skill pública.
 
@@ -73,6 +95,9 @@ Segredos, PII, cookies, documentos de cliente, prompts internos e dados operacio
 | Camada | Fonte | Pode ser gerada? |
 |---|---|---|
 | Comportamento | `SKILL.md` | não |
+| Router | `routers/roteador-brasil.md` | não |
+| Workflows | `skills/<id>/SKILL.md` | não |
+| Envelope | `references/envelope-evidencia.md` | não |
 | Interface | `agents/openai.yaml` | não nesta fase |
 | Conhecimento | `references/*.md` | não sem fonte |
 | Adapter | futuro `adapters/<id>/` | não; código + teste são a verdade |

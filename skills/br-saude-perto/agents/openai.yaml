@@ -1,0 +1,4 @@
+interface:
+  display_name: "Saúde perto — Brasil"
+  short_description: "Localizar serviços de saúde oficiais"
+  default_prompt: "Use $br-saude-perto para localizar UBS, hospitais, serviços SUS ou Farmácia Popular com fonte oficial e limitações claras."

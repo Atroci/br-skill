@@ -37,6 +37,28 @@ O conteúdo funciona como instrução e pesquisa read-only sem ferramenta adicio
 
 Não use `agents/openai.yaml` para configurar ferramentas, permissões ou segredos. Cada runtime mantém esses controles fora da skill.
 
+## Orca CLI Linux: AppImage sem FUSE
+
+Problema observado em `2026-08-05`: o launcher `orca-ide` baseado em AppImage pode falhar antes de executar a CLI com:
+
+```text
+fuse: device not found, try 'modprobe fuse' first
+Cannot mount AppImage, please check your FUSE setup.
+```
+
+No caso observado, Fedora 44 já tinha `fuse`, `fuse-libs`, `fuse3` e o módulo de kernel `fuse`; `/dev/fuse` não estava disponível no ambiente que executou o launcher. Isso é falha de montagem do AppImage, não falha do workflow BR.
+
+Workaround read-only verificado:
+
+```bash
+APPIMAGE_EXTRACT_AND_RUN=1 orca-ide status --json
+APPIMAGE_EXTRACT_AND_RUN=1 orca-ide skills get orca-cli
+```
+
+O primeiro comando retornou `ok: true` para a CLI; `app.running: false` e `runtime.state: stale_bootstrap` indicam que o aplicativo/runtime Orca não estava ativo e são uma etapa separada. A variável manda o AppImage extrair e executar, evitando o mount via FUSE; cada execução pode ser mais lenta.
+
+Fontes e limite: [issue #6790 do Orca](https://github.com/stablyai/orca/issues/6790) registra uma falha relacionada de AppImage/FUSE em Linux headless, mas não confirma este erro exato em todas as distribuições; a [referência FUSE do AppImage](https://github.com/appimage/appimagekit/wiki/fuse) documenta `APPIMAGE_EXTRACT_AND_RUN=1` como fallback. Revalide pacote, dispositivo `/dev/fuse`, launcher e estado do runtime antes de tratar o problema como resolvido.
+
 ## Check de publicação
 
 Antes de publicar ou instalar:

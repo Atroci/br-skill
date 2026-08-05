@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cofre de Recibos BR"
+  short_description: "Organize recibos locais com privacidade"
+  default_prompt: "Use $br-receipt-vault para organizar um recibo ou NF-e fornecido localmente."

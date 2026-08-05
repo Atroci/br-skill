@@ -1,0 +1,62 @@
+# Router Brasil
+
+Router operacional da primeira onda do br-skill. Classificar intenção antes
+de ler uma skill de domínio; carregar somente o workflow escolhido e o
+envelope comum em references/envelope-evidencia.md.
+
+## Classificação
+
+Extrair quatro eixos:
+
+1. Domínio: clima/risco, saúde, medicamento, dinheiro, compras, recibos,
+   jurídico, imóvel, carreira ou transporte.
+2. Jurisdição: Brasil, UF, município, CEP ou desconhecida.
+3. Capacidade: lookup, prepare ou submit.
+4. Risco: baixo, PII/local, autenticado, financeiro, saúde, jurídico ou
+   efeito externo.
+
+Se domínio ou jurisdição material estiverem ausentes, pedir somente o dado
+necessário. Não adivinhar localização, identidade, cobertura ou intenção.
+
+## Rotas da primeira onda
+
+| Intenção | Skill | Entradas mínimas | Saída/gate |
+| --- | --- | --- | --- |
+| alerta, chuva, enchente, fogo, deslizamento, calor | [br-alerta](../skills/br-alerta/SKILL.md) | CEP ou município + UF | alerta/observação/previsão separados; sem notificação automática |
+| UBS, hospital, SUS, Farmácia Popular | [br-saude-perto](../skills/br-saude-perto/SKILL.md) | município + UF ou CEP; serviço | cadastro e status publicado; não promete vaga, estoque ou atendimento |
+| registro, alerta, recolhimento ou teto de medicamento | [br-remedio-seguro](../skills/br-remedio-seguro/SKILL.md) | princípio ativo, dose, forma e embalagem | Anvisa/CMED; não é orientação clínica |
+| Selic, PTAX, inflação, crédito, custo de parcelas | [br-money-decisions](../skills/br-money-decisions/SKILL.md) | data/período, produto e entradas | fatos + cálculo + inferência; não movimenta dinheiro nem aconselha |
+| menor preço, cesta, EAN, lojas próximas | [menor-preco-br](../skills/menor-preco-br/SKILL.md) | itens exatos, local, quantidade e frescor | comparação read-only ou handoff de login; não replica dataset |
+| recibo, NF-e, NFC-e, gasto, garantia, devolução | [br-receipt-vault](../skills/br-receipt-vault/SKILL.md) | arquivo local fornecido pelo usuário | processamento local, redaction e revisão manual |
+
+## Rotas existentes e próximas
+
+| Intenção | Contexto | Limite atual |
+| --- | --- | --- |
+| imóvel, aluguel, condomínio, IPTU, matrícula, commute | [brasil-imobiliario.md](../references/brasil-imobiliario.md) | preparar pesquisa; anúncio não prova propriedade ou disponibilidade |
+| lei, processo, tribunal, prazo, certidão | [brasil-juridico.md](../references/brasil-juridico.md) | pesquisa e evidência; não emitir parecer |
+| vaga, CLT, PJ, estágio, candidatura | [carreira-br.md](../references/carreira-br.md) | descoberta/deduplicação; submissão exige handoff |
+| linha, parada, horário, GTFS, ônibus | [brasil-gtfs.md](../references/brasil-gtfs.md) | separar Schedule, RT, calendário e cobertura; adapter atual é sintético |
+
+Essas rotas não fingem que existe skill executável ou cobertura nacional. Se
+não houver workflow adequado, retornar manual_review/unsupported e apontar
+o contexto que falta.
+
+## Sequência segura
+
+1. Normalizar pedido, idioma pt-BR, localização e unidade.
+2. Escolher rota e ler SKILL.md correspondente.
+3. Escolher fonte primária; registrar URL, produtor, termos, jurisdição e
+   timestamps.
+4. Produzir resultado com estado explícito e limitações não vazias.
+5. Parar antes de login, CAPTCHA, upload, pagamento, assinatura, protocolo,
+   agendamento, compra, notificação ou outra alteração externa.
+6. Se a ação for autorizada em etapa posterior, entregar handoff com os
+   campos necessários; não transformar lookup em submit.
+
+## Fallback
+
+Não usar um agregador, MCP, Council, busca web ou resposta de outro agente para
+substituir fonte primária. Eles podem organizar descoberta ou dissent; a
+evidência final continua dependente do produtor. Se a fonte não abrir, manter
+blocked, auth_required ou unknown e informar o próximo passo humano.

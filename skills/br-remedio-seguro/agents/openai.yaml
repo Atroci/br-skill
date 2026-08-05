@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remédio seguro BR"
+  short_description: "Anvisa, alertas e tetos CMED por medicamento exato"
+  default_prompt: "Use $br-remedio-seguro para comparar Anvisa e CMED por princípio ativo, apresentação e dose exatos."

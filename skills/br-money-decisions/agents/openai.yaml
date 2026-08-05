@@ -1,0 +1,4 @@
+interface:
+  display_name: "Decisões financeiras BR"
+  short_description: "Decisões financeiras BR com dados oficiais"
+  default_prompt: "Use $br-money-decisions para analisar um cenário financeiro brasileiro com fonte do BCB, cálculo explícito e limitações."

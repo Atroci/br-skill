@@ -1,0 +1,4 @@
+interface:
+  display_name: "Menor Preço Brasil"
+  short_description: "Compare cestas com preço e distância"
+  default_prompt: "Use $menor-preco-br para comparar uma cesta de produtos por preço, distância e frescor."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Alertas BR"
+  short_description: "Alertas meteorológicos oficiais no Brasil"
+  default_prompt: "Use $br-alerta para consultar alertas oficiais e relatar fonte, vigência e limitações."
