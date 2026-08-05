@@ -10,3 +10,6 @@ build/
 .DS_Store
 tmp/
 .specify/local/
+
+# Estado local do agente de propostas; pode conter perfil e dados de clientes.
+.br-skill/proposals/

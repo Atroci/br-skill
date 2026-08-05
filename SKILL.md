@@ -27,11 +27,20 @@ Leia somente a referência necessária antes de agir:
 - `references/spec-kit-orca.md`: Spec Kit, níveis de risco e orquestração Orca.
 - `references/fluxo-progressivo.md`: prompts PT-BR para fluxo Spec Kit progressivo e gates Orca por runtime.
 - `references/skillopt.md`: evolução documental inspirada no SkillOpt, com held-out gate e adoção manual.
+- `references/propostas-freela.md`: contrato portátil para organizar, adaptar, revisar e medir propostas de freelance.
 - `references/ecossistema-brasil.md`: mapa Council dos repositórios brasileiros e lacunas revalidadas.
 - `references/envelope-evidencia.md`: contrato comum de proveniência, frescor, estados, privacidade e handoff.
 - `routers/roteador-brasil.md`: classificação de intenção e seleção de workflow.
 - `adapters/gtfs_static/README.md`: validator GTFS Schedule local, sintético e read-only.
 - `skills/*/SKILL.md`: workflows portáteis da primeira onda; carregue somente o domínio escolhido.
+
+No fluxo `br-proposal-agent`, escolha a capacidade antes da operação:
+
+| Capacidade | Operações | Limite |
+| --- | --- | --- |
+| `lookup` | `discover`, `organize`, `score` | leitura, normalização e estado local; sem ação externa |
+| `prepare` | `draft`, `review` | texto e fila para decisão; não aprova por inferência |
+| `submit` | `submit` | somente IDs, plataforma e versão aprovados nesta execução |
 
 ## Fluxo padrão
 
@@ -72,6 +81,7 @@ O router encaminha estes pedidos para skills específicas:
 - `br-money-decisions`: Selic, PTAX, inflação e crédito com cálculo explícito.
 - `menor-preco-br`: comparação de cesta com match exato, distância e frescor.
 - `br-receipt-vault`: recibos/NF-e/NFC-e processados localmente.
+- `br-proposal-agent`: oportunidades freelance, score, rascunho, aprovação, handoff e aprendizado local.
 
 Cada workflow mantém os estados e limites do envelope comum. A existência da
 skill não afirma que a fonte está acessível, que o dado é atual ou que existe

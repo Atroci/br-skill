@@ -8,9 +8,9 @@ O repositório é inspirado no mapa técnico de [`NomaDamas/k-skill`](https://gi
 
 - caminho local: `www/projects/br-skill/`
 - branch inicial: `main`
-- remoto: [Atroci/br-skill](https://github.com/Atroci/br-skill), público; base local verificada antes desta onda: `976b7a0`
+- remoto: [Atroci/br-skill](https://github.com/Atroci/br-skill), público; base local desta onda: `d6d9afb`
 - adapter executável: validator GTFS Schedule local/sintético em `adapters/gtfs_static/`; não consulta feed real
-- primeira onda: seis workflows PT-BR read-only sob `skills/`, selecionados por `routers/roteador-brasil.md`
+- primeira onda: seis workflows PT-BR read-only; fluxo local de propostas freelance sob `skills/`, selecionados por `routers/roteador-brasil.md`
 - prioridade: fontes oficiais, leitura read-only, evidência, PT-BR e aprovação humana
 
 ## Uso local
@@ -22,6 +22,24 @@ npx --yes skills add https://github.com/Atroci/br-skill --skill br-skill -g
 ```
 
 O remoto e o commit inicial já foram publicados; confirme a versão instalada antes de usar em produção.
+
+## Uso rápido para freelance
+
+Carregue a pasta inteira e informe plataforma, fonte, perfil autorizado e operação. Use `lookup` para ler e organizar, `prepare` para pontuar, redigir e revisar, e `submit` somente para uma ação aprovada.
+
+```text
+Organize e pontue estas URLs públicas da plataforma X com meu perfil local. Não envie nada.
+```
+
+```text
+Gere um draft para opportunity_id platform:123. Use apenas provas autorizadas, preço condicionado e prazo sustentado.
+```
+
+```text
+Mostre a fila de review. Depois da minha aprovação explícita para platform:123 e draft_version 2, faça handoff ou submit permitido e pare se houver bloqueio.
+```
+
+O resultado deve separar fatos, inferências e desconhecidos, registrar estado local redigido e mostrar limitações. Score não autoriza envio.
 
 ## Compatibilidade
 
@@ -41,7 +59,7 @@ Leia [`references/plataformas.md`](references/plataformas.md) para comandos de i
 - [`SKILL.md`](SKILL.md): instrução carregada pelo agente.
 - [`routers/roteador-brasil.md`](routers/roteador-brasil.md): router por domínio, jurisdição, capacidade e risco.
 - [`references/envelope-evidencia.md`](references/envelope-evidencia.md): contrato comum de resultado e handoff.
-- [`skills/`](skills/): seis workflows da primeira onda, cada um com `SKILL.md` e metadados opcionais do Codex.
+- [`skills/`](skills/): workflows portáteis, cada um com `SKILL.md` e metadados opcionais do Codex.
 - [`references/arquitetura.md`](references/arquitetura.md): camadas, contexto, Center, Moat e relação com o upstream.
 - [`references/plataformas.md`](references/plataformas.md): instalação e descoberta em OpenCode, Codex, Gemini CLI e Antigravity.
 - [`references/brasil-juridico.md`](references/brasil-juridico.md): pesquisa jurídica e fontes oficiais.
@@ -56,6 +74,7 @@ Leia [`references/plataformas.md`](references/plataformas.md) para comandos de i
 - [`references/spec-kit-orca.md`](references/spec-kit-orca.md): Spec Kit e Orca por nível de risco.
 - [`references/fluxo-progressivo.md`](references/fluxo-progressivo.md): prompts PT-BR e fluxo progressivo para os quatro runtimes.
 - [`references/skillopt.md`](references/skillopt.md): SkillOpt como inspiração controlada para evoluir instruções.
+- [`references/propostas-freela.md`](references/propostas-freela.md): contrato portátil para oportunidades, drafts, envio aprovado e aprendizado local.
 - [`references/ecossistema-brasil.md`](references/ecossistema-brasil.md): mapa Council, ganhos, lacunas e rejeições por upstream.
 - [`adapters/gtfs_static/README.md`](adapters/gtfs_static/README.md): contrato e limites do validator GTFS offline.
 - [`AGENTS.md`](AGENTS.md), [`CONTRIBUTING.md`](CONTRIBUTING.md) e [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md): engenharia e colaboração.
