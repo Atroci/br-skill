@@ -10,7 +10,7 @@ O repositório é inspirado no mapa técnico de [`NomaDamas/k-skill`](https://gi
 - branch inicial: `main`
 - remoto: [Atroci/br-skill](https://github.com/Atroci/br-skill), público; base local desta onda: `d6d9afb`
 - adapter executável: validator GTFS Schedule local/sintético em `adapters/gtfs_static/`; não consulta feed real
-- primeira onda: seis workflows PT-BR read-only; fluxo local de propostas freelance sob `skills/`, selecionados por `routers/roteador-brasil.md`
+- workflows PT-BR read-only e fluxo local de propostas freelance sob `skills/`, selecionados por `routers/roteador-brasil.md`
 - prioridade: fontes oficiais, leitura read-only, evidência, PT-BR e aprovação humana
 
 ## Uso local
@@ -65,7 +65,8 @@ Leia [`references/plataformas.md`](references/plataformas.md) para comandos de i
 - [`references/brasil-juridico.md`](references/brasil-juridico.md): pesquisa jurídica e fontes oficiais.
 - [`references/brasil-imobiliario.md`](references/brasil-imobiliario.md): imóveis, cadastro, localização e mercado.
 - [`references/brasil-gtfs.md`](references/brasil-gtfs.md): feeds GTFS brasileiros localizados e checks de transporte.
-- [`references/carreira-br.md`](references/carreira-br.md): contrato de carreira BR, CLT/PJ/estágio e revisão humana.
+- [`references/carreira-br.md`](references/carreira-br.md): contrato amplo de carreira BR, CLT/PJ e revisão humana.
+- [`references/estagio-cursos-br.md`](references/estagio-cursos-br.md): fontes e contrato para estágio, aprendizagem e cursos gratuitos.
 - [`references/adapters.md`](references/adapters.md): contrato e processo para novos adapters.
 - [`references/council-adapter.md`](references/council-adapter.md): síntese Council com dissent e evidência preservados.
 - [`references/mcp-brasil.md`](references/mcp-brasil.md): mapa do MCP Brasil e contrato opcional runtime-neutral.
@@ -82,7 +83,7 @@ Leia [`references/plataformas.md`](references/plataformas.md) para comandos de i
 ## Onda atual
 
 - implementar workflows reais sem confundir instrução portátil com adapter executável;
-- manter as seis skills da primeira onda em modo read-only, com fontes, timestamps e limites explícitos;
+- manter workflows de descoberta em modo read-only, com fontes, timestamps e limites explícitos;
 - mapear fontes e contratos sem prometer cobertura nacional;
 - separar catálogo, produtor oficial e arquivo atual;
 - manter Council, MCP e Orca como capacidades auxiliares, nunca como autoridade;

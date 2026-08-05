@@ -1,0 +1,4 @@
+interface:
+  display_name: "Estágio e Cursos BR"
+  short_description: "Estágios e cursos gratuitos no Brasil"
+  default_prompt: "Use $br-estagio-cursos para encontrar estágios e cursos gratuitos no Brasil com fontes verificadas, frescor e próximos passos seguros."

@@ -9,7 +9,7 @@ envelope comum em references/envelope-evidencia.md.
 Extrair quatro eixos:
 
 1. Domínio: clima/risco, saúde, medicamento, dinheiro, compras, recibos,
-   jurídico, imóvel, carreira, freelance ou transporte.
+   jurídico, imóvel, carreira, estágio/formação, freelance ou transporte.
 2. Jurisdição: Brasil, UF, município, CEP, plataforma ou desconhecida.
 3. Capacidade: lookup, prepare ou submit.
 4. Risco: baixo, PII/local, autenticado, financeiro, saúde, jurídico ou
@@ -38,6 +38,7 @@ Score e draft não são autorização. Sem acesso permitido, adapter aprovado ou
 | Selic, PTAX, inflação, crédito, custo de parcelas | [br-money-decisions](../skills/br-money-decisions/SKILL.md) | data/período, produto e entradas | fatos + cálculo + inferência; não movimenta dinheiro nem aconselha |
 | menor preço, cesta, EAN, lojas próximas | [menor-preco-br](../skills/menor-preco-br/SKILL.md) | itens exatos, local, quantidade e frescor | comparação read-only ou handoff de login; não replica dataset |
 | recibo, NF-e, NFC-e, gasto, garantia, devolução | [br-receipt-vault](../skills/br-receipt-vault/SKILL.md) | arquivo local fornecido pelo usuário | processamento local, redaction e revisão manual |
+| estágio, jovem aprendiz, primeira experiência, curso gratuito, curso livre, certificado | [br-estagio-cursos](../skills/br-estagio-cursos/SKILL.md) | intenção + área; município/UF ou remoto/EAD | descoberta/comparação read-only; candidatura e matrícula exigem handoff |
 | freela, gig, bid, proposta, cliente de projeto, candidatura freelance | [br-proposal-agent](../skills/br-proposal-agent/SKILL.md) | plataforma/URL ou arquivo + perfil autorizado + operação | score e draft locais; envio exige aprovação por ID |
 
 ## Rotas existentes e próximas
@@ -46,7 +47,7 @@ Score e draft não são autorização. Sem acesso permitido, adapter aprovado ou
 | --- | --- | --- |
 | imóvel, aluguel, condomínio, IPTU, matrícula, commute | [brasil-imobiliario.md](../references/brasil-imobiliario.md) | preparar pesquisa; anúncio não prova propriedade ou disponibilidade |
 | lei, processo, tribunal, prazo, certidão | [brasil-juridico.md](../references/brasil-juridico.md) | pesquisa e evidência; não emitir parecer |
-| vaga, CLT, PJ, estágio, candidatura | [carreira-br.md](../references/carreira-br.md) | descoberta/deduplicação; submissão exige handoff |
+| vaga de emprego, CLT, PJ, candidatura de emprego | [carreira-br.md](../references/carreira-br.md) | descoberta/deduplicação; submissão exige handoff |
 | linha, parada, horário, GTFS, ônibus | [brasil-gtfs.md](../references/brasil-gtfs.md) | separar Schedule, RT, calendário e cobertura; adapter atual é sintético |
 
 Essas rotas não fingem que existe skill executável ou cobertura nacional. Se

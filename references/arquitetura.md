@@ -4,7 +4,7 @@
 
 O `k-skill` upstream mostra um ecossistema amplo: diretórios de skills, manifestos, instruções, stubs gerados, runtime compartilhado, browser, proxy e CI. Ele também separa perfis de acesso e impõe gates para login, CAPTCHA, pagamento e submissão. Isso é contexto de mapeamento, não uma licença para copiar estrutura ou conteúdo específico.
 
-`br-skill` começa menor: uma skill raiz, router, envelope comum, referências brasileiras e seis workflows read-only. Só adiciona runtime, pacote, scripts ou adapters conectados quando houver caso de uso, fonte e teste que justifiquem isso.
+`br-skill` começa menor: uma skill raiz, router, envelope comum, referências brasileiras e workflows read-only. Só adiciona runtime, pacote, scripts ou adapters conectados quando houver caso de uso, fonte e teste que justifiquem isso.
 
 ## Camadas
 
@@ -45,6 +45,7 @@ br-skill/
 │   ├── brasil-imobiliario.md
 │   ├── brasil-gtfs.md
 │   ├── carreira-br.md
+│   ├── estagio-cursos-br.md
 │   ├── adapters.md
 │   ├── council-adapter.md
 │   ├── mcp-brasil.md
@@ -57,7 +58,8 @@ br-skill/
 │   ├── br-remedio-seguro/
 │   ├── br-money-decisions/
 │   ├── menor-preco-br/
-│   └── br-receipt-vault/
+│   ├── br-receipt-vault/
+│   └── br-estagio-cursos/
 ├── adapters/
 │   └── gtfs_static/
 ├── AGENTS.md

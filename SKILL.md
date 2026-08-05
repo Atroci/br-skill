@@ -1,6 +1,6 @@
 ---
 name: br-skill
-description: "Skill portátil em português brasileiro para OpenCode, Codex, Gemini CLI e Google Antigravity: rotear e revisar fluxos brasileiros de vida diária, sites, dados públicos, saúde, dinheiro, compras, jurídico e mercado imobiliário. Use quando a tarefa envolver fontes oficiais brasileiras, legislação, jurisprudência, imóveis, localização, adaptação cultural de site ou criação de workflows e adapters com aprovação e evidência."
+description: "Skill portátil em português brasileiro para OpenCode, Codex, Gemini CLI e Google Antigravity: rotear e revisar fluxos brasileiros de vida diária, sites, dados públicos, saúde, educação, carreira, dinheiro, compras, jurídico e mercado imobiliário. Use quando a tarefa envolver fontes oficiais brasileiras, estágio, cursos gratuitos, legislação, jurisprudência, imóveis, localização, adaptação cultural de site ou criação de workflows e adapters com aprovação e evidência."
 ---
 
 # BR Skill
@@ -19,6 +19,7 @@ Leia somente a referência necessária antes de agir:
 - `references/brasil-imobiliario.md`: imóveis, cadastro, mercado e localização no Brasil.
 - `references/brasil-gtfs.md`: catálogo localizado, checks e limites para transporte público.
 - `references/carreira-br.md`: descoberta read-only de oportunidades profissionais no Brasil.
+- `references/estagio-cursos-br.md`: fontes e limites para estágio, aprendizagem e cursos gratuitos.
 - `references/adapters.md`: contrato e checklist para adicionar adapter.
 - `references/council-adapter.md`: síntese tipada pelo Council sem substituir evidência.
 - `references/mcp-brasil.md`: uso opcional do MCP Brasil como descoberta, nunca como autoridade.
@@ -81,6 +82,7 @@ O router encaminha estes pedidos para skills específicas:
 - `br-money-decisions`: Selic, PTAX, inflação e crédito com cálculo explícito.
 - `menor-preco-br`: comparação de cesta com match exato, distância e frescor.
 - `br-receipt-vault`: recibos/NF-e/NFC-e processados localmente.
+- `br-estagio-cursos`: estágio, aprendizagem e cursos gratuitos com verificação por oferta.
 - `br-proposal-agent`: oportunidades freelance, score, rascunho, aprovação, handoff e aprendizado local.
 
 Cada workflow mantém os estados e limites do envelope comum. A existência da
