@@ -184,3 +184,12 @@ Use o estado mais específico disponível: `no_result`, `stale`, `blocked`, `aut
 **Decisão registrada:** esta versão deve entregar contrato Markdown read-only para descoberta/avaliação e um adapter textual opcional para organizar revisão; scanner, providers, dashboard, SQLite, batch, índice derivado e submit ficam fora do escopo até haver fonte autorizada, caso concreto e teste aprovado.
 
 Isso é uma decisão de escopo de produto, não consenso factual sobre o mercado brasileiro, portais, salários, vagas ou legitimidade de empresas. Qualquer conclusão factual continua dependente de claim, URL, data/hora, jurisdição, limitações e cite-check; a triad não vira fonte de verdade nem substitui revisão humana.
+
+## Atualização — scanner de fontes (2026-08-08)
+
+O caso concreto, a fonte autorizada e o teste aprovado que faltavam para "scanner" e "providers" agora existem, restritos ao que está registrado em
+[`carreira-scanner-br.md`](carreira-scanner-br.md): um catálogo de fontes brasileiras verificado por leitura direta e um adapter mínimo
+(`adapters/vagas_br/`) para duas fontes (Gupy e Programathor), com fixture sintética e `test_adapter.py` local. Dashboard, SQLite, batch, índice
+derivado e submit continuam fora do escopo — o veredito acima permanece válido para esses itens. Toda vaga descoberta por esse caminho ainda
+precisa passar pelo fluxo de avaliação deste arquivo (Fit, Legitimidade, FACT/INFERENCE/UNKNOWN) antes de virar recomendação; a skill de
+descoberta é [`skills/br-vagas-scanner/SKILL.md`](../skills/br-vagas-scanner/SKILL.md).

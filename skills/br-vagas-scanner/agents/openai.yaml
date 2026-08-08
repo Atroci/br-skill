@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vagas BR — scanner de fontes"
+  short_description: "Descoberta read-only de vagas em fontes brasileiras verificadas (Gupy, Programathor)"
+  default_prompt: "Use $br-vagas-scanner para descobrir vagas em fontes brasileiras públicas verificadas, com fonte, frescor e confiança explícitos. Não envia candidatura."

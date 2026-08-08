@@ -1,0 +1,62 @@
+{
+  "sucesso": true,
+  "model": {
+    "facets": {
+      "pais": [
+        {
+          "id": "BR",
+          "nome": "BR",
+          "qntde": 2
+        }
+      ]
+    },
+    "totalVagas": 2,
+    "totalRegistro": 2,
+    "pagina": 1,
+    "itensPagina": 10,
+    "totalPaginas": 1,
+    "cargoValido": true,
+    "dados": [
+      {
+        "id": 500001,
+        "url": "vaga-analista-de-exemplo_500001",
+        "titulo": "Analista de Exemplo",
+        "chamada": "Vaga sintetica de teste local, sem correspondencia com anuncio real.",
+        "data": "sex., 01/agosto",
+        "timestamp": 1785000000,
+        "salario": "",
+        "nivel": "Operacional",
+        "empresa": "Empresa Exemplo Vagas BR",
+        "logoThumb": "",
+        "pcd": false,
+        "trabalhoRemoto": "RemotoFlexivel",
+        "trabalhoRemotoTexto": "Hibrido",
+        "recrutamentoCego": "False",
+        "cidades": [
+          "Brasilia, DF, BR"
+        ],
+        "tags": null,
+        "tipoProcessoSeletivo": "Padrao",
+        "codigoEdital": null,
+        "dataCadastro": "2026-07-20 00:00",
+        "dataExpiracao": "2026-10-20 18:11",
+        "status": "Aberta",
+        "impulsionada": false,
+        "expiracaoImpulsao": ""
+      },
+      {
+        "id": 500002,
+        "url": null,
+        "titulo": "",
+        "chamada": "Registro sem titulo, usado para testar descarte no parser.",
+        "data": "",
+        "timestamp": 0,
+        "salario": "",
+        "nivel": "",
+        "empresa": "Empresa Exemplo Vagas BR",
+        "cidades": [],
+        "status": "Aberta"
+      }
+    ]
+  }
+}

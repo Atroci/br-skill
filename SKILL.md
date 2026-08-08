@@ -1,6 +1,6 @@
 ---
 name: br-skill
-description: "Skill portátil em português brasileiro para OpenCode, Codex, Gemini CLI e Google Antigravity: rotear e revisar fluxos brasileiros de vida diária, sites, dados públicos, saúde, educação, carreira, dinheiro, compras, jurídico, imóveis e propostas freelance. Use quando a tarefa envolver fontes oficiais brasileiras, estágio, cursos gratuitos, legislação, jurisprudência, localização, adaptação cultural de site, gigs, freelas, bids, propostas ou workflows e adapters com aprovação e evidência."
+description: "Skill portátil em português brasileiro para OpenCode, Codex, Gemini CLI e Google Antigravity: rotear e revisar fluxos brasileiros de vida diária, sites, dados públicos, saúde, educação, carreira, dinheiro, compras, jurídico, imóveis e propostas freelance. Use quando a tarefa envolver fontes oficiais brasileiras, estágio, cursos gratuitos, legislação, jurisprudência, localização, adaptação cultural de site, gigs, freelas, bids, propostas, escanear vagas de emprego ou workflows e adapters com aprovação e evidência."
 ---
 
 # BR Skill
@@ -19,6 +19,7 @@ Leia somente a referência necessária antes de agir:
 - `references/brasil-imobiliario.md`: imóveis, cadastro, mercado e localização no Brasil.
 - `references/brasil-gtfs.md`: catálogo localizado, checks e limites para transporte público.
 - `references/carreira-br.md`: descoberta read-only de oportunidades profissionais no Brasil.
+- `references/carreira-scanner-br.md`: catálogo verificado de fontes brasileiras para descoberta de vagas e o adapter que as lê.
 - `references/estagio-cursos-br.md`: fontes e limites para estágio, aprendizagem e cursos gratuitos.
 - `references/adapters.md`: contrato e checklist para adicionar adapter.
 - `references/council-adapter.md`: síntese tipada pelo Council sem substituir evidência.
@@ -33,6 +34,7 @@ Leia somente a referência necessária antes de agir:
 - `references/envelope-evidencia.md`: contrato comum de proveniência, frescor, estados, privacidade e handoff.
 - `routers/roteador-brasil.md`: classificação de intenção e seleção de workflow.
 - `adapters/gtfs_static/README.md`: validator GTFS Schedule local, sintético e read-only.
+- `adapters/vagas_br/README.md`: descoberta de vagas em Gupy/Programathor, com guarda de host e validador de confiança.
 - `skills/*/SKILL.md`: workflows portáteis da primeira onda; carregue somente o domínio escolhido.
 
 No fluxo `br-proposal-agent`, escolha a capacidade antes da operação:
@@ -83,6 +85,7 @@ O router encaminha estes pedidos para skills específicas:
 - `menor-preco-br`: comparação de cesta com match exato, distância e frescor.
 - `br-receipt-vault`: recibos/NF-e/NFC-e processados localmente.
 - `br-estagio-cursos`: estágio, aprendizagem e cursos gratuitos com verificação por oferta.
+- `br-vagas-scanner`: descoberta de vagas em fontes brasileiras verificadas (Gupy, Programathor), com adapter e catálogo de estado por fonte.
 - `br-proposal-agent`: oportunidades freelance, score, rascunho, aprovação, handoff e aprendizado local.
 
 Cada workflow mantém os estados e limites do envelope comum. A existência da

@@ -40,6 +40,7 @@ Score e draft não são autorização. Sem acesso permitido, adapter aprovado ou
 | menor preço, cesta, EAN, lojas próximas | [menor-preco-br](../skills/menor-preco-br/SKILL.md) | itens exatos, local, quantidade e frescor | comparação read-only ou handoff de login; não replica dataset |
 | recibo, NF-e, NFC-e, gasto, garantia, devolução | [br-receipt-vault](../skills/br-receipt-vault/SKILL.md) | arquivo local fornecido pelo usuário | processamento local, redaction e revisão manual |
 | estágio, jovem aprendiz, primeira experiência, curso gratuito, curso livre, certificado | [br-estagio-cursos](../skills/br-estagio-cursos/SKILL.md) | intenção + área; município/UF ou remoto/EAD | descoberta/comparação read-only; candidatura e matrícula exigem handoff |
+| escanear vagas, varrer portal, listar vagas de uma empresa, buscar vaga em massa no Brasil | [br-vagas-scanner](../skills/br-vagas-scanner/SKILL.md) | fonte pedida (empresa no Gupy, quadro, ou nome do catálogo) | vagas normalizadas com fonte/frescor/confiança; fontes fora do catálogo verificado ficam `manual_review` |
 | freela, gig, bid, proposta, cliente de projeto, candidatura freelance | [br-proposal-agent](../skills/br-proposal-agent/SKILL.md) | plataforma/URL ou arquivo + perfil autorizado + operação | score e draft locais; envio exige aprovação por ID |
 
 ## Rotas existentes e próximas
@@ -48,7 +49,7 @@ Score e draft não são autorização. Sem acesso permitido, adapter aprovado ou
 | --- | --- | --- |
 | imóvel, aluguel, condomínio, IPTU, matrícula, commute | [brasil-imobiliario.md](../references/brasil-imobiliario.md) | preparar pesquisa; anúncio não prova propriedade ou disponibilidade |
 | lei, processo, tribunal, prazo, certidão | [brasil-juridico.md](../references/brasil-juridico.md) | pesquisa e evidência; não emitir parecer |
-| vaga de emprego, CLT, PJ, candidatura de emprego | [carreira-br.md](../references/carreira-br.md) | descoberta/deduplicação; submissão exige handoff |
+| vaga de emprego, CLT, PJ, candidatura de emprego | [carreira-br.md](../references/carreira-br.md) + [carreira-scanner-br.md](../references/carreira-scanner-br.md) | descoberta/deduplicação; submissão exige handoff; scanner cobre só Gupy e Programathor nesta rodada |
 | linha, parada, horário, GTFS, ônibus | [brasil-gtfs.md](../references/brasil-gtfs.md) | separar Schedule, RT, calendário e cobertura; adapter atual é sintético |
 
 Essas rotas não fingem que existe skill executável ou cobertura nacional. Se

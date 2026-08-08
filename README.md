@@ -9,7 +9,7 @@ O repositório é inspirado no mapa técnico de [`NomaDamas/k-skill`](https://gi
 - caminho local: `www/projects/br-skill/`
 - branch inicial: `main`
 - remoto: [Atroci/br-skill](https://github.com/Atroci/br-skill), público; base local desta onda: `d6d9afb`
-- adapter executável: validator GTFS Schedule local/sintético em `adapters/gtfs_static/`; não consulta feed real
+- adapters executáveis: validator GTFS Schedule local/sintético em `adapters/gtfs_static/` (não consulta feed real); descoberta de vagas em `adapters/vagas_br/` (Gupy e Programathor, rede real contra fonte pública verificada, sem autenticação)
 - workflows PT-BR read-only e fluxo local de propostas freelance sob `skills/`, selecionados por `routers/roteador-brasil.md`
 - prioridade: fontes oficiais, leitura read-only, evidência, PT-BR e aprovação humana
 
@@ -66,6 +66,7 @@ Leia [`references/plataformas.md`](references/plataformas.md) para comandos de i
 - [`references/brasil-imobiliario.md`](references/brasil-imobiliario.md): imóveis, cadastro, localização e mercado.
 - [`references/brasil-gtfs.md`](references/brasil-gtfs.md): feeds GTFS brasileiros localizados e checks de transporte.
 - [`references/carreira-br.md`](references/carreira-br.md): contrato amplo de carreira BR, CLT/PJ e revisão humana.
+- [`references/carreira-scanner-br.md`](references/carreira-scanner-br.md): catálogo verificado de fontes brasileiras de vagas (Gupy, Programathor e mais) e a arquitetura do scanner, adaptada de career-ops.
 - [`references/estagio-cursos-br.md`](references/estagio-cursos-br.md): fontes e contrato para estágio, aprendizagem e cursos gratuitos.
 - [`references/adapters.md`](references/adapters.md): contrato e processo para novos adapters.
 - [`references/council-adapter.md`](references/council-adapter.md): síntese Council com dissent e evidência preservados.
@@ -78,6 +79,7 @@ Leia [`references/plataformas.md`](references/plataformas.md) para comandos de i
 - [`references/propostas-freela.md`](references/propostas-freela.md): contrato portátil para oportunidades, drafts, envio aprovado e aprendizado local.
 - [`references/ecossistema-brasil.md`](references/ecossistema-brasil.md): mapa Council, ganhos, lacunas e rejeições por upstream.
 - [`adapters/gtfs_static/README.md`](adapters/gtfs_static/README.md): contrato e limites do validator GTFS offline.
+- [`adapters/vagas_br/README.md`](adapters/vagas_br/README.md): contrato e limites do adapter de descoberta de vagas.
 - [`AGENTS.md`](AGENTS.md), [`CONTRIBUTING.md`](CONTRIBUTING.md) e [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md): engenharia e colaboração.
 
 ## Onda atual
@@ -92,11 +94,12 @@ Leia [`references/plataformas.md`](references/plataformas.md) para comandos de i
 
 ## O que entra depois
 
-1. `br-housing-compare`, `br-mobility` e `br-job-match` como workflows delimitados.
+1. `br-housing-compare`, `br-mobility` e `br-job-match` como workflows delimitados — `br-job-match` pode consumir a descoberta de `br-vagas-scanner` (já entregue) como camada de fontes, mas ainda precisa de perfil/score dedicados antes de existir.
 2. Adapter de consulta BrasilAPI/IBGE/CEP com fonte, frescor e fixture explícitos.
 3. Adapter GTFS read-only com produtor autorizado, termos e arquivo atual; sem assumir tempo real.
 4. Adapters jurídico e imobiliário read-only, cada um com jurisdição e fixture explícitas.
 5. Testes de contrato, frescor e falhas; só depois browser handoff ou ação autenticada.
+6. Ampliar `adapters/vagas_br/` para fontes hoje em `manual_review` (Vagas.com.br, Catho, InfoJobs, Sólides Vagas/ex-Kenoby, Trampos.co, Revelo, GeekHunter) somente após reabrir robots.txt/ToS na data do uso e revisão Orca; SINE/Emprega Brasil primeiro precisa de revalidação humana do endpoint oficial.
 
 Não entram por padrão: parecer jurídico, prova de titularidade, bypass de controles, submissão automática, lance, pagamento, assinatura ou uso de dado pessoal sem base e autorização.
 

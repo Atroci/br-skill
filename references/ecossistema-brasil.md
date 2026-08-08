@@ -135,6 +135,17 @@ Para todos os itens desta seção: `source_role=upstream_reference`,
 `access=REVALIDAR`, `capability=UNKNOWN` até a revisão live. O Council desta
 skill pode ordenar investigação, mas não confirma esses claims.
 
+**Atualização factual (2026-08-08, fora do painel Council abaixo):** a linha
+`santifer/career-ops` foi operacionalizada — não revalidada por painel, só
+lida diretamente e traduzida — em
+[`carreira-scanner-br.md`](carreira-scanner-br.md),
+`skills/br-vagas-scanner/SKILL.md` e `adapters/vagas_br/`, restrita ao que a
+tabela já autorizava preservar ("pipeline de oportunidades, revisão humana e
+adaptação a sites brasileiros") e rejeitando o que já estava marcado como
+não importar ("candidatura automática, scraping sem termos ou exposição de
+PII"). Isso não substitui o gate P0–P3 abaixo para os demais repositórios
+desta seção nem para qualquer fonte brasileira ainda não catalogada.
+
 ## Council: pergunta, posições e dissent
 
 **Pergunta:** quais repositórios podem informar o próximo corte da BR Skill, quais ficam apenas como contexto e o que deve ser rejeitado até haver evidência?

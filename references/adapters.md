@@ -82,6 +82,26 @@ substitui validação completa do padrão. Um próximo adapter GTFS precisa reab
 produtor, URL, termos, licença, frescor, jurisdição e arquivo atual; GTFS-RT e
 disponibilidade em tempo real continuam fora deste contrato.
 
+### Adapter Vagas BR
+
+`adapters/vagas_br/` segue a mesma convenção para descoberta de vagas em fontes
+brasileiras: funções `parse_*` puras (sem rede) testadas com fixture sintética, e
+funções `fetch_*`/`discover_*` que fazem rede real só contra as fontes já
+verificadas em [`carreira-scanner-br.md`](carreira-scanner-br.md) (Gupy e
+Programathor nesta rodada), com guarda de host/HTTPS antes de qualquer chamada.
+Execute o check focado com:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 adapters/vagas_br/test_adapter.py
+```
+
+Ele não cobre Vagas.com.br, Catho, InfoJobs, Indeed, LinkedIn, Trampos.co,
+Revelo, GeekHunter nem Sólides Vagas/ex-Kenoby como funções de rede — essas
+ficam catalogadas com o estado observado (`manual_review`, bloqueio nomeado de
+bot de IA, ou estrutura não confirmada), não implementadas. Um adapter que
+cubra qualquer uma delas precisa reabrir robots.txt (geral e nomeado), termos,
+fixture e teste, na mesma rodada de revisão.
+
 ### Fontes agregadas e MCP
 
 Um catálogo, MCP ou ferramenta de descoberta pode preencher `source_role: catalog|aggregator`, sugerir URL ou revelar capability. Isso não autoriza tratar o resultado como oficial. Antes de qualquer conclusão material, reabra a fonte do produtor, confira termos/licença, frescor e jurisdição; se não for possível, use `manual_review` ou `UNKNOWN`.
