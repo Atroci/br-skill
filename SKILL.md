@@ -1,6 +1,6 @@
 ---
 name: br-skill
-description: "Skill portátil em português brasileiro para OpenCode, Codex, Gemini CLI e Google Antigravity: rotear e revisar fluxos brasileiros de vida diária, sites, dados públicos, saúde, educação, carreira, dinheiro, compras, jurídico e mercado imobiliário. Use quando a tarefa envolver fontes oficiais brasileiras, estágio, cursos gratuitos, legislação, jurisprudência, imóveis, localização, adaptação cultural de site ou criação de workflows e adapters com aprovação e evidência."
+description: "Skill portátil em português brasileiro para OpenCode, Codex, Gemini CLI e Google Antigravity: rotear e revisar fluxos brasileiros de vida diária, sites, dados públicos, saúde, educação, carreira, dinheiro, compras, jurídico, imóveis e propostas freelance. Use quando a tarefa envolver fontes oficiais brasileiras, estágio, cursos gratuitos, legislação, jurisprudência, localização, adaptação cultural de site, gigs, freelas, bids, propostas ou workflows e adapters com aprovação e evidência."
 ---
 
 # BR Skill

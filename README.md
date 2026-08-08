@@ -25,7 +25,7 @@ O remoto e o commit inicial já foram publicados; confirme a versão instalada a
 
 ## Uso rápido para freelance
 
-Carregue a pasta inteira e informe plataforma, fonte, perfil autorizado e operação. Use `lookup` para ler e organizar, `prepare` para pontuar, redigir e revisar, e `submit` somente para uma ação aprovada.
+Carregue a pasta inteira e informe plataforma, fonte, perfil autorizado e operação. Use `lookup` para ler, organizar e pontuar, `prepare` para redigir e revisar, e `submit` somente para uma ação aprovada.
 
 ```text
 Organize e pontue estas URLs públicas da plataforma X com meu perfil local. Não envie nada.

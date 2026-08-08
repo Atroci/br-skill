@@ -1,7 +1,7 @@
 # Ecossistema Brasil — mapa para Council
 
 **Status:** `INPUT_INCOMPLETE` — mapa documental preparatório; não registra uma execução de painel.
-**Data do mapa:** `2026-08-03` (`Europe/Lisbon`)
+**Data do mapa:** `2026-08-05` (`Europe/Lisbon`)
 **Escopo:** somente repositórios explicitamente nomeados em [`AGENTS.md`](../AGENTS.md), [`SKILL.md`](../SKILL.md) e referências lidas neste repositório.
 **Capacidade:** `lookup`/`prepare`, read-only. Não cria adapter, runtime, bridge, catálogo executável ou ação externa.
 
@@ -28,6 +28,7 @@ Não há alegação de inventário completo do GitHub, do ecossistema brasileiro
 | R-005 | [`roldaobatista/roldao-method`](https://github.com/roldaobatista/roldao-method/tree/main) | referência de engenharia (`REVALIDAR`) | extrair contrato mínimo; não portar framework |
 | R-006 | [`rodrigowindows/GTFS`](https://github.com/rodrigowindows/GTFS) | cópia comunitária de dado GTFS (`REVALIDAR`) | manter apenas como referência histórica a revalidar |
 | R-007 | [`benaytms/urbs-gtfs`](https://github.com/benaytms/urbs-gtfs) | cópia comunitária de dado GTFS (`REVALIDAR`) | não tratar como produtor oficial |
+| R-008 | [`Hermes-brasil/hermes-brasil`](https://github.com/Hermes-brasil/hermes-brasil) | comunidade de skills/guias Hermes (`REVALIDAR`) | adotar somente padrões locais, human-gated e read-only; rejeitar outbound e persistência não autorizada |
 
 O conjunto acima é o conjunto deste mapa, não uma afirmação de completude. Repositórios citados como fontes de dados não são automaticamente repositórios de software candidatos a integração.
 
@@ -88,6 +89,15 @@ O conjunto acima é o conjunto deste mapa, não uma afirmação de completude. R
 - **Lacuna:** [U-007] **UNKNOWN — REVALIDAR:** licença, frescor, autoridade, integridade e correspondência entre cópia e portal oficial não foram confirmados.
 - **Rejeição:** [I-014] **INFERENCE — REVALIDAR:** não tratar o repositório como produtor, nem publicar sua cópia como feed atual, licenciado ou completo.
 - **Revalidação:** [R-007] URL `https://github.com/benaytms/urbs-gtfs/releases/download/latest/gtfs_curitiba.zip`; acesso registrado `2026-08-02` no mapa GTFS; limitação: cópia comunitária e URL de release não provam termos, bytes atuais, escopo ou autoridade.
+
+### R-008 — `Hermes-brasil/hermes-brasil`
+
+- **Papel:** [F-008] **FACT — REVALIDAR:** comunidade pública de skills e guias em português para Hermes Agent; o repositório é conteúdo, não runtime nem autoridade das plataformas descritas.
+- **Ganho adotado:** [I-021] **INFERENCE:** fila/dispatcher local com estados explícitos, ledger append-only, idempotência, leitura progressiva e handoff de navegador melhoram `br-proposal-agent` sem criar dependência Hermes.
+- **Lacuna:** [U-009] **UNKNOWN — REVALIDAR:** os guias não constituem contrato universal de site; comandos, layout, termos, cobertura e comportamento podem mudar upstream.
+- **Rejeição:** [I-022] **INFERENCE:** não importar a skill de prospecção B2B como padrão; não automatizar WhatsApp, não persistir dados de Google Places sem base permitida, não editar `~/.hermes/cron/jobs.json` diretamente e não executar instalador remoto não fixado como parte da BR Skill.
+- **Fontes consultadas:** [`Hermes Brasil`](https://github.com/Hermes-brasil/hermes-brasil), [`Hermes Skills`](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills), [`Hermes Security`](https://hermes-agent.nousresearch.com/docs/user-guide/security), [`Hermes Cron`](https://hermes-agent.nousresearch.com/docs/user-guide/features/cron), [`WhatsApp Business Policy`](https://business.whatsapp.com/policy), [`Google Maps Platform Terms`](https://cloud.google.com/maps-platform/terms).
+- **Revalidação:** [R-008] consulta pública read-only em `2026-08-05` (`Europe/Lisbon`); jurisdição primária é a documentação das plataformas, não o Brasil; limitação: análise não valida um adapter, licença uniforme, cobertura ou autorização de coleta/envio.
 
 ## Inventário ampliado informado no pedido
 

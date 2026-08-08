@@ -23,7 +23,8 @@ necessário. Não adivinhar localização, identidade, cobertura ou intenção.
 | Pedido | Capacidade | Operação | Saída esperada |
 | --- | --- | --- | --- |
 | “Organize estas URLs permitidas e remova duplicatas” | `lookup` | `discover` + `organize` | oportunidades locais com proveniência |
-| “Compare estas oportunidades com meu perfil e escreva uma proposta” | `prepare` | `score` + `draft` | score explicado e draft versionado |
+| “Compare estas oportunidades com meu perfil” | `lookup` | `score` | score explicado |
+| “Escreva uma proposta para uma oportunidade pontuada” | `prepare` | `draft` | draft versionado |
 | “Envie somente os IDs que aprovei” | `submit` | `review` + `submit` | handoff ou estado de envio por ID |
 
 Score e draft não são autorização. Sem acesso permitido, adapter aprovado ou aprovação pontual, a rota termina em `manual_review`, `blocked`, `auth_required` ou `unsupported`.
